@@ -22,21 +22,17 @@ public class DFenetre extends JFrame {
 	private JLabel minesRestantes;
 	private DChronoLabel temps;
 	private JPanel nord; 
-	private int tailleX, tailleY;
 	
 	private JButton go;
-	private DButton[][] boutons;
 	private DPartie partie;
 
 	private DImageur imageur;
 	private DPanneau centre;
 	
-	int type;
 	
 	public DFenetre(DPartie p){
 		super("Demineur");
 			menu();
-		type = DEBUTANT;
 		imageur = new DImageur(p);
 		miseEnPage();
 	
@@ -198,11 +194,7 @@ public class DFenetre extends JFrame {
 	public JMenuItem getDesign(){
 		return design;
 	}
-	
-	public JMenuItem getStat(){
-		return stat;
-	}
-	
+		
 	public JMenuItem getQuitter(){
 		return quitter;
 	}	
@@ -263,11 +255,7 @@ public class DFenetre extends JFrame {
 	public JButton getGo(){
 		return go;
 	}
-	
-	public JMenu getMenuPartie(){
-		return jeu;
-	}
-	
+		
 	public DPanneau getPanneauCentral(){
 		return centre;
 	}
