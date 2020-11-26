@@ -1,5 +1,7 @@
 import java.awt.event.*;
 
+import metier.DPartie;
+
 public class EcouteurGo implements ActionListener{
 	
 	DFenetre fenetre;
@@ -15,9 +17,9 @@ public class EcouteurGo implements ActionListener{
 		fenetre.arretChrono();
 		fenetre.initChrono();
 		
-		partie.nouvellePartie(partie.getMatrice().getHauteur(),
-		                      partie.getMatrice().getLargeur(),
-		                      partie.getMatrice().getMines());
+		partie.nouvellePartie(partie.getHauteur(),
+		                      partie.getLargeur(),
+		                      partie.getMines());
 		fenetre.connecterPartie(partie);
 		
 	}

@@ -1,5 +1,8 @@
 import java.awt.event.*;
 import javax.swing.*;
+
+import metier.DPartie;
+
 import java.io.*;
 
 public class EcouteurMenu implements ActionListener{
@@ -17,9 +20,9 @@ public class EcouteurMenu implements ActionListener{
 	    	if(ae.getSource() == fenetre.getNouvelle()){
 			fenetre.arretChrono();
 			fenetre.initChrono();
-			partie.nouvellePartie(partie.getMatrice().getHauteur(),
-		                      partie.getMatrice().getLargeur(),
-		                      partie.getMatrice().getMines());
+			partie.nouvellePartie(partie.getHauteur(),
+		                      partie.getLargeur(),
+		                      partie.getMines());
 			fenetre.connecterPartie(partie);
 		}
 	       	if(ae.getSource() == fenetre.getDebutant()){

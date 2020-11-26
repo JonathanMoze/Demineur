@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.*;
 
+import metier.DPartie;
+
 public class Main{
 	public static void main(String[] args){	
 			DPartie partie = new DPartie(9,9,10);

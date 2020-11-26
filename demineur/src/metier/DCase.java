@@ -1,3 +1,4 @@
+package metier;
 public class DCase{
 	
 	private boolean mine;

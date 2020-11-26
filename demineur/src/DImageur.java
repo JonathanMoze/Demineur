@@ -1,8 +1,13 @@
 import javax.swing.*;
+
+import metier.DPartie;
+import metier.EtatCase;
+
 import java.awt.*;
 
 public class DImageur{
 	
+
 	private DPartie partie;
 	public String repertoire = "resources/Images/Classic";
 	
@@ -18,68 +23,36 @@ public class DImageur{
 		repertoire = s;
 	}
 	
+	public DPartie getPartie() {
+		return partie;
+	}
+
 	
-	ImageIcon getImage(int i, int j){
-		
-		if(!partie.perdu() && !partie.gagne()){
-			if(partie.getMatrice().getCase(i,j).yaDrapreau())
-				return new ImageIcon(repertoire+"/Drapeau.GIF");
-			if(!partie.getMatrice().getCase(i,j).estDecouverte()){
-				if(partie.getMatrice().getCase(i,j).select())
-					return new ImageIcon(repertoire+"/Select.GIF");
-				else
-					return new ImageIcon(repertoire+"/Inconnue.GIF");
-			}
-			switch(partie.getMatrice().getCase(i,j).getMinesAlentour()){
-					case 0: return new ImageIcon(repertoire+"/Vide.GIF");
-					case 1: return new ImageIcon(repertoire+"/1.GIF");
-					case 2: return new ImageIcon(repertoire+"/2.GIF");
-					case 3: return new ImageIcon(repertoire+"/3.GIF");
-					case 4: return new ImageIcon(repertoire+"/4.GIF");
-					case 5: return new ImageIcon(repertoire+"/5.GIF");
-					case 6: return new ImageIcon(repertoire+"/6.GIF");
-					case 7: return new ImageIcon(repertoire+"/7.GIF");
-					case 8: return new ImageIcon(repertoire+"/8.GIF");
-					default : return new ImageIcon(repertoire+"/Mine.GIF");
-				}
-		}
-		else{
-			if(partie.perdu()){
-				if((partie.getMatrice().getCase(i,j).yaDrapreau())
-			   		&& !(partie.getMatrice().getCase(i,j).estMine() ))
-			   			return new ImageIcon(repertoire+"/Croix.GIF");
-			   	if(partie.getMatrice().getCase(i,j).estMine())
-			   		return new ImageIcon(repertoire+"/Mine.GIF");
-			   	if(!partie.getMatrice().getCase(i,j).estDecouverte())
-					return new ImageIcon(repertoire+"/Inconnue.GIF");	
-			 		switch(partie.getMatrice().getCase(i,j).getMinesAlentour()){
-						case 0: return new ImageIcon(repertoire+"/Vide.GIF");
-						case 1: return new ImageIcon(repertoire+"/1.GIF");
-						case 2: return new ImageIcon(repertoire+"/2.GIF");
-						case 3: return new ImageIcon(repertoire+"/3.GIF");
-						case 4: return new ImageIcon(repertoire+"/4.GIF");
-						case 5: return new ImageIcon(repertoire+"/5.GIF");
-						case 6: return new ImageIcon(repertoire+"/6.GIF");
-						case 7: return new ImageIcon(repertoire+"/7.GIF");
-						case 8: return new ImageIcon(repertoire+"/8.GIF");
-						default : return new ImageIcon(repertoire+"/Mine.GIF");
-					}
-			}
-			else {
-				switch(partie.getMatrice().getCase(i,j).getMinesAlentour()){
-						case 0: return new ImageIcon(repertoire+"/Vide.GIF");
-						case 1: return new ImageIcon(repertoire+"/1.GIF");
-						case 2: return new ImageIcon(repertoire+"/2.GIF");
-						case 3: return new ImageIcon(repertoire+"/3.GIF");
-						case 4: return new ImageIcon(repertoire+"/4.GIF");
-						case 5: return new ImageIcon(repertoire+"/5.GIF");
-						case 6: return new ImageIcon(repertoire+"/6.GIF");
-						case 7: return new ImageIcon(repertoire+"/7.GIF");
-						case 8: return new ImageIcon(repertoire+"/8.GIF");
-						default : return new ImageIcon(repertoire+"/Drapeau.GIF");
-				}
-			}
+	ImageIcon getIcon(EtatCase etat) {
+		switch(etat) {
+		case VIDE: return new ImageIcon(repertoire+"/Vide.GIF");
+		case DRAPEAU: return new ImageIcon(repertoire+"/Drapeau.GIF");
+		case MINE: return new ImageIcon(repertoire+"/Mine.GIF");
+		case CROIX: return new ImageIcon(repertoire+"/Croix.GIF");
+		case SELECTED: return new ImageIcon(repertoire+"/Select.GIF");
+		case UN: return new ImageIcon(repertoire+"/1.GIF");
+		case DEUX: return new ImageIcon(repertoire+"/2.GIF");
+		case TROIS: return new ImageIcon(repertoire+"/3.GIF");
+		case QUATRE: return new ImageIcon(repertoire+"/4.GIF");
+		case CINQ: return new ImageIcon(repertoire+"/5.GIF");
+		case SIX: return new ImageIcon(repertoire+"/6.GIF");
+		case SEPT: return new ImageIcon(repertoire+"/7.GIF");
+		case HUIT: return new ImageIcon(repertoire+"/8.GIF");
+		default: return new ImageIcon(repertoire+"/Inconnue.GIF");
 		}
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

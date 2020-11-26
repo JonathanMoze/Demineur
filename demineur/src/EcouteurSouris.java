@@ -1,6 +1,8 @@
 import java.awt.event.*;
 import java.io.*;
 
+import metier.DPartie;
+
 
 public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 
@@ -20,16 +22,16 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 		sourisY = me.getY()/20;
 		try{
 		  if(!partie.perdu() && !partie.gagne() 
-		       && !(partie.getMatrice().getCase(sourisY,sourisX).yaDrapreau())){
+		       && !(partie.getCase(sourisY,sourisX).yaDrapreau())){
 			
 			if(me.getButton()==me.BUTTON1){
 				gauchePresse = false;
 				try{
-					partie.getMatrice().getCase(sourisY,sourisX).selectionner();
+					partie.getCase(sourisY,sourisX).selectionner();
 				}
 				catch(NullPointerException npe){  }
 				try{
-					partie.getMatrice().devoilerCase(sourisY,sourisX);
+					partie.devoilerCase(sourisY,sourisX);
 				}
 				catch(NullPointerException npe){  }
 				fenetre.lancerChrono();
@@ -64,11 +66,11 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 			
 			if(me.getButton()==me.BUTTON1){
 				gauchePresse = true;
-				partie.getMatrice().getCase(sourisY,sourisX).selectionner();
+				partie.getCase(sourisY,sourisX).selectionner();
 				fenetre.goOups();
 			}	
 			if(me.getButton()==me.BUTTON3){
-				partie.getMatrice().drapeauAction(sourisY,sourisX);					
+				partie.drapeauAction(sourisY,sourisX);					
 				fenetre.miseAJourCompteur();
 				
 			}
@@ -92,13 +94,13 @@ public class EcouteurSouris  implements MouseListener, MouseMotionListener{
 		int y = me.getY()/20;
 		if(((x!=sourisX) || (y!=sourisY)) && gauchePresse){
 			try{
-				partie.getMatrice().getCase(sourisY,sourisX).deselectionner();
+				partie.getCase(sourisY,sourisX).deselectionner();
 			}
 			catch(NullPointerException npe){  }
 			sourisX = x;
 			sourisY = y;
 			try{
-				partie.getMatrice().getCase(sourisY,sourisX).selectionner();
+				partie.getCase(sourisY,sourisX).selectionner();
 			}
 			catch(NullPointerException npe){  }
 			me.getComponent().repaint();

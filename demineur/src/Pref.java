@@ -1,4 +1,7 @@
 import javax.swing.*;
+
+import metier.DPartie;
+
 import java.awt.*;
 import java.awt.event.*;
 
