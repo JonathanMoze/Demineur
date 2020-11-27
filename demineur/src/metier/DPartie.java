@@ -270,15 +270,15 @@ public class DPartie {
 	public EtatCase getEtatCase(int i, int j) {
 		
 		if(!perdu() && !gagne()){
-			if(getCase(i,j).yaDrapreau())
+			if(matrice[i][j].yaDrapreau())
 				return EtatCase.DRAPEAU;
-			if(!getCase(i,j).estDecouverte()){
-				if(getCase(i,j).select())
+			if(!matrice[i][j].estDecouverte()){
+				if(matrice[i][j].select())
 					return EtatCase.SELECTED;
 				else
 					return EtatCase.INCONNUE;
 			}
-			switch(getCase(i,j).getMinesAlentour()){
+			switch(matrice[i][j].getMinesAlentour()){
 					case 0: return EtatCase.VIDE;
 					case 1: return EtatCase.UN;
 					case 2: return EtatCase.DEUX;
@@ -293,14 +293,14 @@ public class DPartie {
 		}
 		else{
 			if(perdu()){
-				if((getCase(i,j).yaDrapreau())
-			   		&& !(getCase(i,j).estMine() ))
+				if((matrice[i][j].yaDrapreau())
+			   		&& !(matrice[i][j].estMine() ))
 			   			return EtatCase.CROIX;
-			   	if(getCase(i,j).estMine())
+			   	if(matrice[i][j].estMine())
 			   		return EtatCase.MINE;
-			   	if(!getCase(i,j).estDecouverte())
+			   	if(!matrice[i][j].estDecouverte())
 					return EtatCase.INCONNUE;	
-			 		switch(getCase(i,j).getMinesAlentour()){
+			 		switch(matrice[i][j].getMinesAlentour()){
 			 			case 0: return EtatCase.VIDE;
 			 			case 1: return EtatCase.UN;
 			 			case 2: return EtatCase.DEUX;
@@ -314,7 +314,7 @@ public class DPartie {
 					}
 			}
 			else {
-				switch(getCase(i,j).getMinesAlentour()){
+				switch(matrice[i][j].getMinesAlentour()){
 					case 0: return EtatCase.VIDE;
 					case 1: return EtatCase.UN;
 					case 2: return EtatCase.DEUX;
