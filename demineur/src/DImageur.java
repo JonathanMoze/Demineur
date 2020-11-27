@@ -7,12 +7,12 @@ import java.awt.*;
 
 public class DImageur{
 	
-
-	private DPartie partie;
+	//private EtatCase etat;
+	//private DPartie partie;
 	public String repertoire = "resources/Images/Classic";
 	
-	public DImageur(DPartie p){
-		partie = p;
+	public DImageur(/*EtatCase e*/){
+		//etat = e;
 	}
 	
 	public String getRepertoire(){
@@ -23,9 +23,13 @@ public class DImageur{
 		repertoire = s;
 	}
 	
-	public DPartie getPartie() {
+	/*public DPartie getPartie() {
 		return partie;
-	}
+	}*/
+	
+	/*public EtatCase getEtat() {
+		return etat;
+	}*/
 
 	
 	ImageIcon getIcon(EtatCase etat) {
