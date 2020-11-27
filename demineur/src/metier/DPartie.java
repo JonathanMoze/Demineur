@@ -3,7 +3,7 @@ import java.util.Random;
 
 import javax.swing.ImageIcon;
 
-public class DPartie {
+public class DPartie implements IDPartie{
 	
 	private int hauteur, largeur, nbMines; // parametres de la partie
 	private DCase[][] matrice; 
@@ -36,16 +36,6 @@ public class DPartie {
 	
 	public boolean perdu(){
 		return aExplose();
-	}
-	
-	
-	
-	public DCase getCase(int i, int j)  {
-		try{
-			return matrice[i][j];
-		}
-		catch(ArrayIndexOutOfBoundsException e){ return null; }
-	
 	}
 	
 	public int getHauteur(){
@@ -329,6 +319,28 @@ public class DPartie {
 			}
 		}
 	}
+	
+	
+	public void deselectionnerCase(int y, int x) {
+		this.matrice[y][x].deselectionner();
+	}
+	
+	public void selectionnerCase(int y, int x) {
+		this.matrice[y][x].selectionner();
+	}
+	
+	public boolean yaDrapeauSurCase(int y, int x) {
+		return this.matrice[y][x].yaDrapreau();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		
 }
 

@@ -8,6 +8,7 @@ import java.awt.event.*;
 
 public class DFenetre extends JFrame {
 
+	private static final long serialVersionUID = 1L;
 	final static int DEBUTANT = 1;
 	final static int INTER = 2;
 	final static int EXPERT = 3;
@@ -51,7 +52,7 @@ public class DFenetre extends JFrame {
 			getContentPane().remove(centre);
 		centre = new DPanneau(this);
 		
-		EcouteurSouris ecouteurSouris = new EcouteurSouris(this, partie);
+		EcouteurSouris ecouteurSouris = new EcouteurSouris(this);
 		centre.addMouseListener(ecouteurSouris);
 		centre.addMouseMotionListener(ecouteurSouris);
 		
@@ -59,7 +60,7 @@ public class DFenetre extends JFrame {
 		
 		/* Affichage */
 		
-		this.setSize(20*partie.getHauteur() + 6, 20*partie.getLargeur() + 50 + 23 + 25);
+		this.setSize(20*partie.getLargeur() + 6, 20*partie.getHauteur() + 50 + 23 + 25);
 		
 		this.setResizable(false);
 	 	
@@ -322,9 +323,37 @@ public class DFenetre extends JFrame {
 		return this.partie;
 	}
 	
+	public boolean perdu(){
+		return partie.perdu();
+	}
 	
+	public boolean gagne(){
+		return partie.gagne();
+	}
 	
+	public void selectionnerCase(int y, int x) {
+		partie.selectionnerCase(y, x);
+	}
 	
+	public void deselectionnerCase(int y, int x) {
+		partie.deselectionnerCase(y, x);
+	}
+	
+	public void devoilerCase(int i,int j){
+		partie.devoilerCase(i, j);
+	}
+	
+	public void drapeauAction(int i, int j){
+		partie.drapeauAction(i, j);
+	}
+	
+	public boolean yaDrapeauSurCase(int y, int x) {
+		return partie.yaDrapeauSurCase(y, x);
+	}
+	
+	public void nouvellePartie(int h, int l, int nb){
+		partie.nouvellePartie(h, l, nb);
+	}
 	
 	
 	
