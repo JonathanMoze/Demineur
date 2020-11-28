@@ -3,6 +3,7 @@ import java.awt.*;
 
 public class DPanneau extends JPanel{
 	
+	private static final long serialVersionUID = 1L;
 	private DFenetre fenetre;
 	
 	public DPanneau(DFenetre fe){

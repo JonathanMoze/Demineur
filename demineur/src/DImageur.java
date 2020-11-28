@@ -1,18 +1,13 @@
 import javax.swing.*;
 
-import metier.DPartie;
 import metier.EtatCase;
-
-import java.awt.*;
 
 public class DImageur{
 	
-	//private EtatCase etat;
-	//private DPartie partie;
+
 	public String repertoire = "resources/Images/Classic";
 	
-	public DImageur(/*EtatCase e*/){
-		//etat = e;
+	public DImageur(){
 	}
 	
 	public String getRepertoire(){
@@ -22,15 +17,6 @@ public class DImageur{
 	public void setRepertoire(String s){
 		repertoire = s;
 	}
-	
-	/*public DPartie getPartie() {
-		return partie;
-	}*/
-	
-	/*public EtatCase getEtat() {
-		return etat;
-	}*/
-
 	
 	ImageIcon getIcon(EtatCase etat) {
 		switch(etat) {

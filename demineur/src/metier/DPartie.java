@@ -1,8 +1,6 @@
 package metier;
 import java.util.Random;
 
-import javax.swing.ImageIcon;
-
 public class DPartie implements IDPartie{
 	
 	private int hauteur, largeur, nbMines; // parametres de la partie
@@ -16,7 +14,6 @@ public class DPartie implements IDPartie{
 	}
 	
 	public void nouvellePartie(int h, int l, int nb){
-		//nouvellePartie(h,l,nb);
 				hauteur = h;
 				largeur = l;
 				nbMines = nb;

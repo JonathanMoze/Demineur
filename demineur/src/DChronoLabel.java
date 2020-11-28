@@ -1,9 +1,9 @@
-import java.awt.*;
 import javax.swing.*;
 
 
 public class DChronoLabel extends JLabel implements Runnable{
 
+	private static final long serialVersionUID = 1L;
 	private Thread t;
 	private boolean enMarche, pause;
 	private int temps;
@@ -30,9 +30,13 @@ public class DChronoLabel extends JLabel implements Runnable{
 		while(enMarche){
 			temps++;
 			setText(convertirTemps());
-			while(pause){ }
+			while(pause){ 
+					try {
+						Thread.sleep(1);
+					} catch (InterruptedException e) {}
+				}
 			try{
-				t.sleep(1000);
+				Thread.sleep(1000);
 			}
 			catch (InterruptedException ie){;}
 		}
@@ -52,7 +56,7 @@ public class DChronoLabel extends JLabel implements Runnable{
 	}
 	
 	String convertirTemps(){
-		Integer i = new Integer(temps);
+		Integer i = Integer.valueOf(temps);
 		if(temps<10)
 			return ("00"+i.toString());
 		else
